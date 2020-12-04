@@ -57,41 +57,46 @@ inquirer.prompt([
 
 
     // Declare the file name
-    const filename = 'readmeGenerator.md'
-    // Replace the space in any of the license names with the proper spacing format for a url in order to prevent the badge from breaking.
-    const license = `${response.license}`.replace(" ", '%20')
+    const filename = 'README.md'
 
+    // Generates a table of contents link for the license if an option other than none is selected
     function renderLicenseTOC() {
-        if(`${response.license}` !== 'None'){
+        if (`${response.license}` !== 'None') {
             return `- [License](#license)`
         } else {
             return ''
         }
     }
+    // Generates the license section in the readme if an option other than none is selected
     function renderLicenseSection() {
-        if(`${response.license}` !== 'None'){
+        if (`${response.license}` !== 'None') {
             return `## License
-            This project is licensed under the ${response.license} license.`
+This project is licensed under the ${response.license} license.`
         } else {
             return ''
         }
     }
+    // Generates a badge to display the license being used if an option other than none is selected
     function renderLicenseBadge() {
-        if(`${response.license}` !== 'None'){
+
+
+        // Replace the space in any of the license names with the proper spacing format for a url in order to prevent the badge from breaking.
+        const license = `${response.license}`.replace(" ", '%20')
+        if (`${response.license}` !== 'None') {
             return `![License](https://img.shields.io/badge/license-${license}-lightblue.svg)`
         } else {
             return ''
         }
     }
 
-    
+
 
     // Write to the file using the writeFile function, takes in the file name and what is being entered within the file.
     fs.writeFile(filename,
 
-`# ${response.title}
+        `# ${response.title}
 
-
+${renderLicenseBadge()}
 
 ## Description
 ${response.description}
@@ -102,10 +107,10 @@ ${response.description}
 ${renderLicenseTOC()}
 - [Contributing](#Contributing)
 - [Tests](#Tests)
-- [Questions](#Questions)
+- [Questions?](#Questions?)
            
 ## Installation
-Enter the following command into the command line: \`\`\`${response.installation}\`\`\`
+Enter the following command into the command line to install dependencies: \`\`\`${response.installation}\`\`\`
 
 ## Usage
 ${response.usage}
@@ -115,14 +120,16 @@ ${renderLicenseSection()}
 ## Contributing
 ${response.contributing}
 
-## Test
-Enter the following command into the command line: \`\`\`${response.test}\`\`\`
+## Tests
+Enter the following command into the command line to test: \`\`\`${response.test}\`\`\`
            
-## Questions
+## Questions?
 
 View more of my work at the Github link below or contact me at the email below.
-Github: https://github.com/${response.github}
+
+Github: [${response.github}](https://github.com/${response.github})
+
 Email: ${response.email}`
         ,
-        (err) => err ? console.log(err) : console.log('done'))
+        (err) => err ? console.log(err) : console.log('Readme has been generated.'))
 })
