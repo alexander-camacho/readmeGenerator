@@ -105,9 +105,9 @@ ${response.description}
 - [Installation](#installation)        
 - [Usage](#usage)           
 ${renderLicenseTOC()}
-- [Contributing](#Contributing)
-- [Tests](#Tests)
-- [Questions?](#Questions?)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions?](#questions)
            
 ## Installation
 Enter the following command into the command line to install dependencies: \`\`\`${response.installation}\`\`\`
