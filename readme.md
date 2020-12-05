@@ -9,9 +9,9 @@ This project is a template to generate future README.md files at a quicker rate,
 - [Installation](#installation)        
 - [Usage](#usage)           
 
-- [Contributing](#Contributing)
-- [Tests](#Tests)
-- [Questions?](#Questions?)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions?](#questions)
            
 ## Installation
 Enter the following command into the command line to install dependencies: ```npm i```
